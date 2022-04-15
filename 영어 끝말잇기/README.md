@@ -3,3 +3,5 @@
 ## 코딩테스트 연습 Summer/Winter Coding(~2018) 영어 끝말잇기
 
 https://programmers.co.kr/learn/courses/30/lessons/12981
+
+배열 중복 indexOf로 확인,

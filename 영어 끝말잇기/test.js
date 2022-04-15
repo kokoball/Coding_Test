@@ -3,9 +3,7 @@ function solution(n, words) {
   for (var i = 1; i < words.length; i++) {
     var val = words[i];
     // 전단계의 끝말과 현단계 첫말이 다를 경우
-    if (
-      words[i - 1].substring(words[i - 1].length - 1) != val.substring(0, 1)
-    ) {
+    if (words[i - 1].slice(-1) != val.slice(0, 1)) {
       fail_i = i;
       break;
     }

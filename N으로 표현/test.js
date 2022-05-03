@@ -8,7 +8,7 @@ function solution(N, number) {
           cache[i].add(arg1 + arg2);
           cache[i].add(arg1 - arg2);
           cache[i].add(arg1 * arg2);
-          cache[i].add((arg1 / arg2) >> 0);
+          cache[i].add(arg1 / arg2);
         }
       }
     }
@@ -17,6 +17,4 @@ function solution(N, number) {
   return -1;
 }
 
-const arr = [2, 6, 8, 14];
-
-console.log(solution(arr));
+console.log(solution(5, 12));

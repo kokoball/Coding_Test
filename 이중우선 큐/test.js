@@ -1,23 +1,49 @@
-function solution(operations) {
-  var answer = [];
-  let maxNum, minNum;
-
-  for (let i = 0; i < operations.length; i++) {
-    const [keyword, num] = operations[i].split(" ");
-
-    if (keyword === "I") {
-      answer.push(+num);
-      answer.sort((a, b) => a - b);
+function DupQueue() {
+  this.queue = [];
+}
+DupQueue.prototype.command = function (cmd) {
+  var self = this;
+  var cmd_line = String(cmd).split(" ");
+  if ("I" == cmd_line[0]) {
+    var value = parseInt(cmd_line[1]);
+    if (this.empty()) {
+      this.queue.push(value);
+    } else if (value < this.queue[0]) {
+      this.queue.unshift(value);
+    } else if (value > this.queue[this.queue.length - 1]) {
+      this.queue.push(value);
     } else {
-      if (num === "1") answer.pop();
-      else answer.shift();
+      for (var i = 0; i < this.queue.length; i++) {
+        if (this.queue[i] > value) {
+          this.queue.splice(i, 0, value);
+          break;
+        }
+      }
+    }
+  } else if ("D" == cmd_line[0]) {
+    if ("1" == cmd_line[1]) {
+      this.queue.pop();
+    } else {
+      this.queue.shift();
     }
   }
-  if (answer.length === 0) return [0, 0];
-  maxNum = answer.pop();
-  minNum = answer.shift();
+  //console.log(cmd, this.queue);
+};
+DupQueue.prototype.empty = function () {
+  return !!(this.queue.length == 0);
+};
+DupQueue.prototype.first = function () {
+  return this.queue[0];
+};
+DupQueue.prototype.last = function () {
+  return this.queue[this.queue.length - 1];
+};
 
-  return [maxNum, minNum];
+function solution(values) {
+  var dq = new DupQueue();
+  values.forEach((cmd) => dq.command(cmd));
+  //console.log(dq.queue);
+  return dq.empty() ? [0, 0] : [dq.last(), dq.first()];
 }
 
 const operations = ["I 16", "D 1"];

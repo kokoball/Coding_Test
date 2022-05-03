@@ -4,6 +4,4 @@
 
 https://programmers.co.kr/learn/courses/30/lessons/42628
 
-map을 이용한 조건에 맞는 객체 만들어 반환하기
-
-userId는 변하지 않는다는점을 이용
+이중 힙, 이중큐

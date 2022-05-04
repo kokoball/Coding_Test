@@ -13,6 +13,7 @@ class SinglyLinkedList {
     this.tail = null;
   }
 
+  // 특정 값을 가지고 있는 노드 찾기
   find(value) {
     let currNode = this.head;
     while (currNode.value !== value) {
@@ -31,7 +32,7 @@ class SinglyLinkedList {
       this.tail = newNode;
     }
   }
-  // 중간에 Node 추가
+  // Node 중간에 추가
   insert(node, newValue) {
     const newNode = new Node(newValue);
     newNode.next = node.next;

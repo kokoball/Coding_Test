@@ -15,7 +15,7 @@ class Tree {
     // 전위 순회 // 노, 왼, 오
     console.log(currentNode.value);
     if (currentNode.left) this.preorder(currentNode.left);
-    if (currentNode.right) this.preorder(currentNode.right);
+    if (currentNode.right) this.preorder(current.right);
   }
 
   inorder(currentNode) {

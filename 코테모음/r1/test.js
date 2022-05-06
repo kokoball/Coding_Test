@@ -98,19 +98,3 @@ function solution(arr, k) {
 const arr = [5, 5, 10, 10, 5, 8];
 
 console.log(solution(arr, 4));
-
-// let x = solution(arr, 4);
-
-// console.log(x);
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());
-// console.log(x.pop());

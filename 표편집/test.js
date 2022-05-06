@@ -1,3 +1,6 @@
+// double linked list
+// 더블 링크드 리스트
+
 const Node = function (idx, prevNode) {
   this.idx = idx;
   this.prev = prevNode;

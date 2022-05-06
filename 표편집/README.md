@@ -4,4 +4,4 @@
 
 https://programmers.co.kr/learn/courses/30/lessons/81303
 
-링크드 리스트, 노드
+더블 링크드 리스트, 노드

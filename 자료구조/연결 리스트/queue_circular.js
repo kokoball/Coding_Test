@@ -1,4 +1,5 @@
 // linked list로 구현했을 때 크게 이점이 없음
+// 링크드 리스트
 // 배열로 circular queue 구현
 
 class Queue {

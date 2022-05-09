@@ -1,3 +1,5 @@
+// 싱글 링크드 리스트
+
 class Node {
   constructor(value) {
     // 값과 포인트

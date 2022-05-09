@@ -1,4 +1,6 @@
 // Linked List로 Queue 구현
+// 링크드 리스트
+
 class Node {
   constructor(value) {
     // 값과 포인트
@@ -43,10 +45,8 @@ const queue = new Queue();
 queue.enqueue(1);
 queue.enqueue(2);
 queue.enqueue(4);
-console.log(queue.dequeue());
 
-queue.enqueue(8);
-console.log(queue.size);
-console.log(queue.peek());
+console.log(queue);
 console.log(queue.dequeue());
 console.log(queue.dequeue());
+console.log(queue.pop());

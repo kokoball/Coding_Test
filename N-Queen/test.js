@@ -42,6 +42,4 @@ function solution(n) {
   );
 }
 
-const s = "[](){}";
-
-console.log(solution(s));
+console.log(solution(4));

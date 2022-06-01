@@ -1,3 +1,4 @@
+// 최단거리는 BFS
 function solution(maps) {
   // 1. 남동북서 기준
   const dy = [1, 0, -1, 0];
@@ -25,7 +26,7 @@ function solution(maps) {
         // 7. maps 1은 벽 없는 자리 && visitCount 처음 방문
         if (maps[ny][nx] === 1 && visitCount[ny][nx] === 1) {
           visitCount[ny][nx] = visitCount[y][x] + 1;
-          queue.push([ny,  nx]);
+          queue.push([ny, nx]);
         }
       }
     }

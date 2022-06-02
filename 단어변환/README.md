@@ -4,4 +4,4 @@
 
 https://programmers.co.kr/learn/courses/30/lessons/43163
 
-DFS BFS
+DFS, BFS, obj 초기화

@@ -76,5 +76,5 @@ heap.push(63);
 // array.push(heap.pop());
 
 console.log(heap);
-console.log(heap.pop());
+// console.log(heap.pop());
 // console.log(array);

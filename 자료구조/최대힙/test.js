@@ -69,12 +69,12 @@ heap.push(54);
 heap.push(27);
 heap.push(63);
 
-const array = [];
-array.push(heap.pop());
-array.push(heap.pop());
-array.push(heap.pop());
-array.push(heap.pop());
-array.push(heap.pop());
+// const array = [];
+// array.push(heap.pop());
+// array.push(heap.pop());
+// array.push(heap.pop());
+// array.push(heap.pop());
+// array.push(heap.pop());
 
 console.log(heap);
-console.log(array);
+// console.log(array);

@@ -14,8 +14,7 @@ function solution(order) {
             stack.pop();
             continue;
         }
-        stack.push(index);
-        index++
+        stack.push(index++);
     }
  
     return answer;

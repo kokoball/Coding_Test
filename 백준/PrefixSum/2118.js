@@ -1,27 +1,25 @@
+// 투 포인터
 const filePath = process.platform === "linux" ? "dev/stdin" : "../test.txt";
-const input = require("fs").readFileSync(filePath).toString().trim().split("\n");
+const input = require("fs").readFileSync(filePath).toString().trim().split("\n").map(Number);
 
 function solution(input) {
-  const N = input.shift().split(" ").map(Number);
-  const arr = new Array(N + 1).fill(0);
-  let maxVal = -Infinity;
+  const n = input[0];
+  const total = input.reduce((prev, curr) => prev + curr, 0) - n;
 
-  for (let i = 1; i <= N; i++) {
-    arr[i] = Number(input[i - 1]) + arr[i - 1];
-  }
+  let from = 1;
+  let dist = 0;
+  let answer = 0;
 
-  for (let i = 1; i <= N; i++) {
-    for (let j = i + 1; j <= N; j++) {
-      const rightDistance = arr[j] - arr[i];
-      const leftDistance = arr[N] - rightDistance;
-
-      if (rightDistance > leftDistance) break;
-      const num = Math.min(leftDistance, rightDistance);
-      maxVal = Math.max(maxVal, num);
+  for (let to = 1; to < input.length; to++) {
+    dist += input[to];
+    while (dist > total - dist) {
+      dist -= input[from];
+      from++;
     }
+    answer = Math.max(answer, dist);
   }
 
-  return maxVal;
+  return answer;
 }
 
 console.log(solution(input));

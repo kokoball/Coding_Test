@@ -87,3 +87,11 @@ let Range_value =
 // 68
 
 console.log(Range_value);
+
+// 배열을 만들땐 push 보다는 전체 배열을 만들고 누적합 배열 구하기
+const prefixSum = new Array(N + 1).fill(0);
+const answer = new Array(Q).fill(0);
+
+for (let i = 1; i <= N; i++) {
+  prefixSum[i] = prefixSum[i - 1] + arr[i - 1];
+}

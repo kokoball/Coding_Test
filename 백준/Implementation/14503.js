@@ -14,16 +14,6 @@ function solution(input) {
   let cnt = 0;
 
   while (1) {
-    if (cnt === 4) {
-      const [backx, backy] = [x + dx[(d + 2) % 4], y + dy[(d + 2) % 4]];
-      if (arr[backx][backy] === 1) break;
-      else {
-        x = backx;
-        y = backy;
-        cnt = 0;
-      }
-    }
-
     if (!visited[x][y]) {
       visited[x][y] = true;
       arr[x][y] = -1;
@@ -39,6 +29,16 @@ function solution(input) {
       cnt++;
     }
     d = (d + 3) % 4;
+
+    if (cnt === 4) {
+      const [backX, backY] = [x + dx[(d + 2) % 4], y + dy[(d + 2) % 4]];
+      if (arr[backX][backY] === 1) break;
+      else {
+        x = backX;
+        y = backY;
+        cnt = 0;
+      }
+    }
   }
 
   return ans;

@@ -2,25 +2,17 @@ const filePath = process.platform === "linux" ? "dev/stdin" : "../test.txt";
 const input = require("fs").readFileSync(filePath).toString().trim().split("\n");
 
 function solution(input) {
-  const X = Number(input.shift());
-  let answer;
-  let now = 1;
-  let index = 1;
+  const N = Number(input.shift());
+  let index = input[0].charCodeAt(0);
+  let type = new Set();
 
-  for (let i = 1; i <= X; i++) {
-    if (X === i) {
-      let top = now % 2 === 0 ? index : now - index + 1;
-      let bottom = now % 2 === 0 ? now - index + 1 : index;
-      answer = top + "/" + bottom;
-    } else {
-      if (now - index === 0) {
-        now++;
-        index = 1;
-      } else index++;
-    }
+  for (let i = 1; i < N; i++) {
+    if (input[i].charCodeAt(0) === index) continue;
+    if (input[i].charCodeAt(0) > index) type.add("INCREASING");
+    if (input[i].charCodeAt(0) < index) type.add("DECREASING");
   }
 
-  return answer;
+  return type.size > 1 ? "NEITHER" : [...type][0];
 }
 
 console.log(solution(input));

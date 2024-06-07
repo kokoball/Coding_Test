@@ -1,9 +1,7 @@
+// BFS
+
 const filePath = process.platform === "linux" ? "dev/stdin" : "../test.txt";
-const input = require("fs")
-  .readFileSync(filePath)
-  .toString()
-  .trim()
-  .split("\n");
+const input = require("fs").readFileSync(filePath).toString().trim().split("\n");
 
 class Earthquake {
   constructor(x, y) {

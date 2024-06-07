@@ -1,3 +1,4 @@
+// 상하좌우 배열 움직임
 const filePath = process.platform === "linux" ? "dev/stdin" : "../test.txt";
 const input = require("fs").readFileSync(filePath).toString().trim().split("\n");
 

@@ -2,49 +2,34 @@ const filePath = process.platform === "linux" ? "dev/stdin" : "../test.txt";
 const input = require("fs").readFileSync(filePath).toString().trim().split("\n");
 
 function solution(input) {
-  const N = Number(input.shift());
-  const grid = input.map((v) => v.split("").map(Number));
-  const answer = [];
-  const ds = [
-    [-1, 0],
-    [1, 0],
-    [0, 1],
-    [0, -1],
-  ];
+  const qty = Number(input.shift());
+  const pair = Number(input.shift());
+  const computers = input.map((v) => v.split(" ").map(Number));
+
+  let answer = 0;
+  let visited = Array(qty + 1).fill(false);
+  let graph = Array.from(Array(qty + 1)).map(() => []);
+
+  computers.map(([from, to]) => {
+    graph[from].push(to);
+    graph[to].push(from);
+  });
 
   const bfs = (start) => {
-    const queue = [start];
-    let cnt = 0;
-
+    let queue = [start];
     while (queue.length) {
-      const [curY, curX] = queue.shift();
-      cnt++;
-
-      for (let i = 0; i < 4; i++) {
-        const ny = curY + ds[i][1];
-        const nx = curX + ds[i][0];
-
-        if (ny >= 0 && ny < N && nx >= 0 && nx < N && grid[ny][nx]) {
-          grid[ny][nx] = 0;
-          queue.push([ny, nx]);
-        }
+      const node = queue.shift();
+      if (!visited[node]) {
+        visited[node] = true;
+        answer++;
+        queue.push(...graph[node]);
       }
     }
-    return cnt;
   };
 
-  for (let i = 0; i < N; i++) {
-    for (let j = 0; j < N; j++) {
-      if (grid[i][j]) {
-        grid[i][j] = 0;
-        answer.push(bfs([i, j]));
-      }
-    }
-  }
-  answer.sort((a, b) => a - b);
-  answer.unshift(answer.length);
+  bfs(1);
 
-  return answer;
+  return answer - 1;
 }
 
-console.log(solution(input).join("\n"));
+console.log(solution(input));
